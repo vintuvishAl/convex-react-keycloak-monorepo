@@ -1,0 +1,15 @@
+This repository is not a standard npm create template - it's a complete Docker-based development environment.
+
+The correct setup process is:
+1. Clone the repository directly: git clone https://github.com/vintuvishAl/convex-react-keycloak-monorepo.git
+2. Start Docker services: docker compose up -d
+3. Generate Convex admin key: docker compose exec backend bash -c "cd /convex && ./generate_admin_key.sh"
+4. Create .env.local file in backend directory with the generated admin key
+5. Manually configure Keycloak at http://localhost:8080/admin (default credentials: admin/admin)
+6. Create .env.local file in frontend directory with Keycloak settings
+7. Deploy Convex schema: cd backend && npm install && npx convex deploy
+8. Install and run frontend: cd frontend && npm install && npm run dev
+
+This repository provides a full-stack environment with PostgreSQL, Keycloak authentication, and self-hosted Convex, which requires Docker to run all infrastructure components together.
+
+Please refer to the README for detailed setup instructions.
